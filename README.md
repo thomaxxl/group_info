@@ -29,15 +29,19 @@ t@tpollet-ubuntu-vm:/tmp$ ./ping_of -20
 ...
 t@tpollet-ubuntu-vm:/tmp$ ./ping.py -c
 Starting client
-
+numgroups: 8
 numgroups: 8
 numgroups: -1055523072
 >
 ```
+
+The numgroups output is the return value of getgroups(). If this changed, it means something else is at that memory location.
+
 [Session 2]
 ```
 t@tpollet-ubuntu-vm:/tmp$ ./ping.py -s
 Starting Server
+opening 1000 fds
 opening 1000 fds
 opening 1000 fds
 ```
