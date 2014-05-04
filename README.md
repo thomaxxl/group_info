@@ -5,7 +5,7 @@ This repository holds code to help exploiting CVE-2014-2851: Linux group_info re
 
 - ping_of.c calls ping_init_sock() argv[1] times. Doing this in python would make things too slow. 
 
-- ping.py contains a client and a server function. 
+- ping.py contains code to check if the group_info struct has been freed. 
 
 The client function does the following:
 - call ping_init_sock() to increase the refcounter
