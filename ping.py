@@ -17,7 +17,7 @@ FD_COUNT  = 1000
 R_OK = 4 
 AT_EACCESS = 512
 
-### Server 
+######## Server 
 
 def open_fds( close = False):
     fds = []
@@ -35,7 +35,6 @@ def open_fds( close = False):
     
     return fds
                 
-                        
 def server():
     if os.path.exists( SOCK_PATH ):
         os.remove(SOCK_PATH)
@@ -85,7 +84,6 @@ def send(client,cmd):
     client.send(cmd)
     client.recv(1)
                     
-    
 def client(skip = 0):
     ng = get_groups()    
     client = socket( AF_UNIX, SOCK_STREAM )
