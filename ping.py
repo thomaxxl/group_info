@@ -16,7 +16,8 @@ FD_COUNT  = 1000
 
 R_OK = 4 
 AT_EACCESS = 512
- 
+
+### Server 
 def open_fds( close = False):
     fds = []
     print "opening %i fds "%FD_COUNT
