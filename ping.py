@@ -18,6 +18,7 @@ R_OK = 4
 AT_EACCESS = 512
 
 ### Server 
+
 def open_fds( close = False):
     fds = []
     print "opening %i fds "%FD_COUNT
@@ -63,6 +64,7 @@ def server():
         pass
         
 ######## Client
+
 def do_ping():
     try:
         socket(AF_INET, SOCK_DGRAM, IPPROTO_ICMP)
@@ -85,9 +87,7 @@ def send(client,cmd):
                     
     
 def client(skip = 0):
-
-    ng = get_groups()
-    
+    ng = get_groups()    
     client = socket( AF_UNIX, SOCK_STREAM )
     client.connect( SOCK_PATH )
     
@@ -133,16 +133,7 @@ if __name__ == '__main__':
         while not os.path.exists(SOCK_PATH):
             print "Waiting for control connection (%s)" % SOCK_PATH
             time.sleep(1)
-        client(14)
+        client()
     if args.server:
         print "Starting Server"
         server()
-
-sys.exit(0)
-
-from ctypes import *
-a = create_string_buffer (40)
-libc = CDLL("libc.so.6")
-libc.getgroups(10,a)
-
-
