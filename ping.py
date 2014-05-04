@@ -129,7 +129,6 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
     if args.client:
-        #os.spawnlp(os.P_NOWAIT, sys.argv[0], "pingserver", "dummy")
         print "Starting client"
         while not os.path.exists(SOCK_PATH):
             print "Waiting for control connection (%s)" % SOCK_PATH
