@@ -15,7 +15,7 @@ The client function does the following:
 we wait 15 seconds between faccessat and getgroups because the group_info struct may not have been overwritten yet.
  
 
-The server should be called in a separate session because the credentials are shared between parent and child processes.
+The server opens a number of fds on request in order to use the freed memory. This should be called in a separate session because the credentials are shared between parent and child processes.
 
 first, execute ping_of.c . This will increment the refcounter close to zero (e.g. -20).
 next, in a different session,  execute "ping.py -s"
